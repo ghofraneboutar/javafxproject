@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Seule déclaration XML valide -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <HBox spacing="0">
+            <!-- Panneau gauche -->
+            <VBox alignment="CENTER" prefWidth="400" style="-fx-background-color: linear-gradient(to right, #1D3557, #2A9DF4);">
+                <padding>
+                    <Insets bottom="60" left="40" right="40" top="60" />
+                </padding>
+                
+                <Text style="-fx-fill: white; -fx-font-size: 42px; -fx-font-weight: 800;" text="Air Travel ✈">
+                    <effect>
+                        <DropShadow color="#00000055" radius="8" spread="0.3" />
+                    </effect>
+                </Text>
+                
+                <Text style="-fx-fill: #B3E5FC; -fx-font-size: 18px; -fx-font-style: italic;" text="Votre partenaire de voyage" />
+            </VBox>
+
+            <!-- Panneau droit -->
+            <VBox alignment="CENTER" prefWidth="400" style="-fx-background-color: linear-gradient(135deg, #E3F2FD, #B3E5FC);">
+                <padding>
+                    <Insets bottom="80" top="80" />
+                </padding>
+                
+                <!-- Carte de connexion -->
+                <VBox alignment="CENTER" spacing="20" style="-fx-background-color: rgba(255,255,255,0.95);                               -fx-background-radius: 25;                               -fx-padding: 40 50 40 50;                              -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 25, 0, 0, 5;">
+                    
+                    <Label style="-fx-text-fill: #1A237E; -fx-font-size: 28px; -fx-font-weight: bold;" text="Connexion" />
+
+                    <TextField promptText="Nom d'utilisateur" style="-fx-background-radius: 15;                                        -fx-pref-width: 200px;                                       -fx-border-color: #42A5F5;                                       -fx-border-radius: 15;                                       -fx-marging: 10 10;                                       -fx-border-width: 2;">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </VBox.margin>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding></TextField>
+
+                    <PasswordField promptText="Mot de passe" style="-fx-background-radius: 15;                                            -fx-pref-width: 200px;                                           -fx-border-color: #42A5F5;                                           -fx-border-radius: 15;                                           -fx-border-width: 2;">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" />
+                  </VBox.margin>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding></PasswordField>
+
+                    <Button style="-fx-background-color: #2962FF;                                     -fx-text-fill: white;                                     -fx-font-weight: bold;                                     -fx-background-radius: 15;                                     -fx-pref-width: 200px;                                    -fx-font-size: 16px;                                    -fx-cursor: hand;" text="Se connecter">
+                        <effect>
+                            <InnerShadow color="#00000025" height="4" />
+                        </effect>
+                    </Button>
+
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <style>
+        .root {
+            -fx-primary: #2962FF;
+            -fx-secondary: #00BFA5;
+            -fx-accent: #1D3557;
+        }
+        
+        .button:hover {
+            -fx-background-color: derive(-fx-primary, -15%);
+            -fx-effect: dropshadow(three-pass-box, rgba(41,98,255,0.3), 10, 0, 0, 3);
+        }
+        
+        .text-field:hover, .password-field:hover {
+            -fx-border-color: derive(#42A5F5, 20%);
+        }
+        
+        .hyper-link:hover {
+            -fx-text-fill: derive(-fx-secondary, -15%);
+            -fx-underline: true;
+        }
+    </style>
+</BorderPane>
