@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.AvionController"
+             stylesheets="@style.css"
+            styleClass="content-view">
+    
+    <!-- Header with title and actions -->
+    <top>
+        <VBox spacing="15">
+            <HBox alignment="CENTER_LEFT" styleClass="view-header">
+                <Label text="Gestion des Avions" styleClass="view-title" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnAddNew" styleClass="btn-primary" text="+ Ajouter un avion" />
+            </HBox>
+            
+            <!-- Search and filter bar -->
+            <HBox spacing="10" styleClass="search-bar">
+                <TextField fx:id="txtSearch" promptText="Rechercher un avion..." HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnSearch" styleClass="btn-search">
+                    <graphic>
+                        <Region styleClass="icon-search" />
+                    </graphic>
+                </Button>
+                <Button fx:id="btnFilter" styleClass="btn-filter">
+                    <graphic>
+                        <Region styleClass="icon-filter" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <!-- Main content with table and details -->
+    <center>
+        <SplitPane dividerPositions="0.7" styleClass="content-split-pane">
+            <!-- Table of avions -->
+            <VBox styleClass="table-container">
+                <TableView fx:id="tableAvions" VBox.vgrow="ALWAYS" styleClass="avions-table">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="60" />
+                        <TableColumn fx:id="colMatricule" text="Matricule" prefWidth="120" />
+                        <TableColumn fx:id="colModele" text="Modèle" prefWidth="200" />
+                        <TableColumn fx:id="colCapacite" text="Capacité" prefWidth="100" />
+                        <TableColumn fx:id="colEtat" text="État" prefWidth="120" />
+                    </columns>
+                    <placeholder>
+                        <Label text="Aucun avion disponible" />
+                    </placeholder>
+                </TableView>
+            </VBox>
+            
+            <!-- Details panel -->
+            <StackPane styleClass="details-container">
+                <!-- No selection message -->
+                <Label fx:id="lblNoSelection" text="Sélectionnez un avion pour voir les détails" 
+                       styleClass="no-selection-label" />
+                
+                <!-- Details pane (hidden by default) -->
+                <VBox fx:id="detailsPane" styleClass="details-pane" visible="false">
+                    <Label text="Détails de l'avion" styleClass="details-title" />
+                    
+                    <TabPane styleClass="details-tabs">
+                        <Tab text="Informations" closable="false">
+                            <VBox spacing="15" styleClass="details-tab-content">
+                                <GridPane hgap="15" vgap="10">
+                                    <Label text="ID:" styleClass="details-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                    <Label text="1" styleClass="details-value" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="Matricule:" styleClass="details-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                    <Label text="A320-001" styleClass="details-value" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="Modèle:" styleClass="details-label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                    <Label text="Airbus A320" styleClass="details-value" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="Capacité:" styleClass="details-label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                    <Label text="180 passagers" styleClass="details-value" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="État:" styleClass="details-label" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                                    <Label text="disponible" styleClass="details-value, status-active" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="Dernière maintenance:" styleClass="details-label" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                                    <Label text="15/04/2023" styleClass="details-value" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                                    
+                                    <Label text="Prochaine maintenance:" styleClass="details-label" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                                    <Label text="15/10/2023" styleClass="details-value" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                                </GridPane>
+                                
+                                <HBox spacing="10" styleClass="details-actions">
+                                    <Button text="Modifier" styleClass="btn-secondary" />
+                                    <Button text="Planifier maintenance" styleClass="btn-outline" />
+                                    <Button text="Supprimer" styleClass="btn-danger" />
+                                </HBox>
+                            </VBox>
+                        </Tab>
+                        <Tab text="Vols" closable="false">
+                            <VBox spacing="10" styleClass="details-tab-content">
+                                <ListView styleClass="history-list" VBox.vgrow="ALWAYS">
+                                    <Label text="Aucun vol associé à cet avion" />
+                                </ListView>
+                            </VBox>
+                        </Tab>
+                        <Tab text="Documents" closable="false">
+                            <VBox spacing="10" styleClass="details-tab-content">
+                                <ListView styleClass="documents-list" VBox.vgrow="ALWAYS">
+                                    <Label text="Manuel d'utilisation.pdf" />
+                                    <Label text="Certificat de navigabilité.pdf" />
+                                    <Label text="Rapport d'inspection.pdf" />
+                                    <Label text="Historique des maintenances.xlsx" />
+                                </ListView>
+                            </VBox>
+                        </Tab>
+                    </TabPane>
+                </VBox>
+            </StackPane>
+        </SplitPane>
+    </center>
+</BorderPane>

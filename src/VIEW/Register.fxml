@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.RegisterController"
+           stylesheets="@style.css"
+           prefHeight="700.0" prefWidth="1000.0">
+
+    <!-- Background with gradient -->
+    <Rectangle width="1000" height="700" styleClass="login-background"/>
+    
+    <!-- Main content -->
+    <HBox alignment="CENTER" spacing="0">
+        <!-- Left side - Image and branding -->
+        <VBox styleClass="login-image-container" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <StackPane styleClass="login-logo-container">
+                <Circle radius="50" styleClass="login-logo-circle" />
+                <Label text="✈" styleClass="login-logo-icon" />
+            </StackPane>
+            
+            <Label text="AirTravel" styleClass="login-brand-name" />
+            <Label text="Command Center" styleClass="login-brand-subtitle" />
+            
+            <VBox styleClass="login-features" spacing="15" maxWidth="400">
+                <Label text="Rejoignez notre plateforme de gestion aéronautique" styleClass="login-feature-item" />
+                <Label text="Accès sécurisé à toutes les fonctionnalités" styleClass="login-feature-item" />
+                <Label text="Support technique dédié" styleClass="login-feature-item" />
+                <Label text="Mises à jour régulières" styleClass="login-feature-item" />
+            </VBox>
+        </VBox>
+        
+        <!-- Right side - Registration form -->
+        <VBox styleClass="login-form-container" alignment="CENTER" maxWidth="500" HBox.hgrow="ALWAYS">
+            <ScrollPane fitToWidth="true" styleClass="register-scroll-pane" VBox.vgrow="ALWAYS" maxHeight="600">
+                <VBox styleClass="login-form" spacing="20" maxWidth="350">
+                    <Label text="Créer un compte" styleClass="login-title" />
+                    
+                    <HBox spacing="10">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Prénom" styleClass="login-label" />
+                            <TextField fx:id="txtFirstName" promptText="Prénom" styleClass="login-input" />
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Nom" styleClass="login-label" />
+                            <TextField fx:id="txtLastName" promptText="Nom" styleClass="login-input" />
+                        </VBox>
+                    </HBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Email" styleClass="login-label" />
+                        <TextField fx:id="txtEmail" promptText="exemple@airtravel.com" styleClass="login-input" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Nom d'utilisateur" styleClass="login-label" />
+                        <TextField fx:id="txtUsername" promptText="Choisissez un nom d'utilisateur" styleClass="login-input" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Mot de passe" styleClass="login-label" />
+                        <PasswordField fx:id="txtPassword" promptText="Créez un mot de passe" styleClass="login-input" />
+                        <Label text="Le mot de passe doit contenir au moins 8 caractères" styleClass="login-hint" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Confirmer le mot de passe" styleClass="login-label" />
+                        <PasswordField fx:id="txtConfirmPassword" promptText="Confirmez votre mot de passe" styleClass="login-input" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Poste" styleClass="login-label" />
+                        <ComboBox fx:id="cmbRole" promptText="Sélectionnez votre poste" styleClass="login-combo" maxWidth="Infinity" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Département" styleClass="login-label" />
+                        <ComboBox fx:id="cmbDepartment" promptText="Sélectionnez votre département" styleClass="login-combo" maxWidth="Infinity" />
+                    </VBox>
+                    
+                    <CheckBox fx:id="chkTerms" text="J'accepte les termes et conditions" styleClass="login-checkbox" />
+                    
+                    <Button fx:id="btnRegister" text="S'inscrire" styleClass="login-button" onAction="#handleRegister" />
+                    
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label text="Vous avez déjà un compte ?" styleClass="login-text" />
+                        <Hyperlink fx:id="linkLogin" text="Se connecter" styleClass="login-link" onAction="#goToLogin" />
+                    </HBox>
+                </VBox>
+            </ScrollPane>
+            
+            <Label text="© 2023 AirTravel Command Center. Tous droits réservés." styleClass="login-copyright" />
+        </VBox>
+    </HBox>
+</StackPane>
