@@ -791,3 +791,17 @@
 .register-scroll-pane .corner {
     -fx-background-color: transparent;
 }
+.status-active {
+    -fx-text-fill: #2a9d8f;
+    -fx-background-color: #e6f7e9;
+}
+
+.status-warning {
+    -fx-text-fill: #f9c74f;
+    -fx-background-color: #fff4e5;
+}
+
+.status-danger {
+    -fx-text-fill: #e63946;
+    -fx-background-color: #ffe5e5;
+}

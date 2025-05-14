@@ -19,7 +19,7 @@
                 <Insets top="10" right="20" bottom="10" left="20" />
             </padding>
             
-            <Label styleClass="app-title" text="✈ AirTravel Command Center" />
+            <Label styleClass="app-title" text="✈ AirTravel Agnece de voyage " />
             
             <Region HBox.hgrow="ALWAYS" />
             
@@ -41,7 +41,7 @@
                 <graphic>
                     <StackPane>
                         <Circle radius="16" styleClass="avatar-circle" />
-                        <Label text="AD" styleClass="avatar-text" />
+                        <Label text="AT" styleClass="avatar-text" />
                     </StackPane>
                 </graphic>
             </Button>

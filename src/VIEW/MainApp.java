@@ -16,7 +16,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/VIEW/style.css").toExternalForm());
         
-        primaryStage.setTitle("AirTravel Command Center - Connexion");
+        primaryStage.setTitle("AirTravel  - Connexion");
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(1000);
         primaryStage.setMinHeight(700);
